@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calorie Calculator</h1>
+
+    <label for="food">Food Item:</label>
+    <input type="text" id="food" placeholder="Enter food item">
+
+    <label for="calories">Calories per 100g:</label>
+    <input type="number" id="calories" placeholder="Enter calories per 100g">
+
+    <label for="quantity">Quantity (in grams):</label>
+    <input type="number" id="quantity" placeholder="Enter quantity in grams">
+
+    <button onclick="calculateCalories()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateCalories() {
+            var food = document.getElementById("food").value;
+            var caloriesPer100g = document.getElementById("calories").value;
+            var quantity = document.getElementById("quantity").value;
+            var totalCalories = (caloriesPer100g / 100) * quantity;
+
+            var resultElement = document.getElementById("result");
+            resultElement.textContent = "Calories in " + quantity + "g of " + food + ": " + totalCalories + " calories";
+        }
+    </script>
+</body>
+</html>
